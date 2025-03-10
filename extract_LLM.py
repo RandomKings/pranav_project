@@ -2,7 +2,7 @@ import os
 import re
 import json
 import pandas as pd
-import win32com.client
+from docx import Document
 from typing import Sequence
 from dotenv import load_dotenv
 from docx import Document
@@ -84,14 +84,10 @@ def read_docx(file_path):
     return "\n".join([para.text.strip() for para in doc.paragraphs if para.text.strip()])
 
 def read_doc(file_path):
-    """Reads text from a DOC file using win32com."""
+    """Reads text from a DOCX file using python-docx."""
     abs_path = os.path.abspath(file_path)
-    word = win32com.client.Dispatch("Word.Application")
-    word.Visible = False  # Run in background
-    doc = word.Documents.Open(abs_path)
-    text = doc.Content.Text
-    doc.Close()
-    word.Quit()
+    doc = Document(abs_path)
+    text = "\n".join([para.text for para in doc.paragraphs])
     return text
 
 def select_files():
