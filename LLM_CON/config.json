@@ -1,0 +1,17 @@
+{
+    "column_fields": [
+      "keluhan_utama",
+      "jalannya_penyakit",
+      "berat_badan",
+      "suhu",
+      "heart_rate",
+      "resp_rate",
+      "diagnosa_utama",
+      "diagnosa_sekunder",
+      "prosedur_utama",
+      "prosedur_sekunder",
+      "kondisi_pasien_pulang",
+      "obat"
+    ]
+  }
+  
